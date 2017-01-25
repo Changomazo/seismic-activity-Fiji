@@ -1,0 +1,43 @@
+---
+title: "Seismic Events in Fiji since 1964"
+author: "Albert Blanchart"
+date: "January 25, 2017"
+output:
+  slidy_presentation: default
+  ioslides_presentation:
+    fig_caption: yes
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+- During this course about Developin Data Products we have learned few special but useful features to "pimp up"our data and among them plotly is maybe one of the most useful ones. Remember those pretty graph generated with ggplot, well plotly makes them interactive. The theme for this presentation is also seismic activity.
+- Last week I prsented a map of seismic activity in Italy during the the 19th of January. You can check it in my Rpub <https://rpubs.com/changomazo/243350>.
+- This week we will focus again in seismic activity but this time we will take a dataset included in the R packages datasets *quakes*.
+
+
+## The data
+- The *quakes* dataset is a data frame containing 1000 observations grouped in 5 variables. You can check the details [here](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/quakes.html).
+```{r str}
+str(quakes)
+```
+- We will present this data in an interactive graph base in the plotly package. We will look at the location of each seismic activity and add a third variable **mag** into play to have an idea about where and how intensive those quakes happened in Fiji during 1964 and **depth** since it shows a striking pattern based on location.
+
+## Slide with R Output
+
+```{r cars, message=FALSE}
+library(plotly)
+library(ggplot2)
+p <- qplot(data = quakes, x = lat, y = long, color = depth, size = mag, alpha = I(.50))
+ggplotly(p)
+```
+
+## Conclusion
+
+- Plotly allow us to recreate detailed graphs that the user can interact with to get a more detailed inofrmation about what is displayed in the graph.
+- Plotly package includes two useful commands to plot the data one is the universal known **plot_ly** and another one I found pretty handy (and actually the one in use) is **ggplotly** which allow us to create the graph first using ggplot and then convert into a web application.
+- To see how the p[lot was created visit the repository in my *GitHub* web-page [here]()

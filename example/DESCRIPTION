@@ -1,0 +1,9 @@
+Package: example
+Type: Package
+Title: Building my very first package
+Version: 0.1.0
+Author: Albert Blanchart
+Maintainer: albert Blanchart <blanchiplanchi@yahoo.es>
+Description: Nothing really interesting, just a piece of crap
+License: GPL-3
+LazyData: TRUE
